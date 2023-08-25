@@ -1,0 +1,96 @@
+
+/*annullamento di tutte le preimpostazioni dei motiori di ricerca */
+* {
+  vertical-align: baseline;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  
+}
+
+body{
+    font-family: 'Playfair Display', serif;
+    font-family: 'Work Sans', sans-serif;
+    background: rgb(244, 194, 166);
+}
+
+/*stile generale del form*/
+.card {
+
+    width: 300px;
+    margin: 200px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(20, 0, 31, 0.1);
+    padding: 30px;
+  }
+
+  h2 {
+    text-align: center;
+    color: rgb(222, 19, 111);
+    font-weight: 600;
+    font-size: 20px;
+   
+  }
+
+
+.form-input{
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  backdrop-filter: blur(10px);
+  background: rgb(228, 228, 228);
+  opacity:0.7;
+}
+
+.form-input:selected{
+  border: none;
+  background: none;
+}
+
+.btn {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 41, 137);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+.btn:hover {
+  background-color: rgb(222, 19, 111);
+  transform: scale(110%);
+}
+
+.form-check{
+  margin-top: 15px;
+}
+
+/*  ccs della richiesta in fondo al form */
+.accountrichiesta{
+  margin-top: 20px;
+  font-family: 'Work Sans', sans-serif;
+  color: rgb(82, 82, 82);
+}
+
+.accedi{
+  font-family: 'Work Sans', sans-serif;
+  color:rgb(255, 41, 137);
+
+}
+
+.accedi:hover {
+  color: rgb(222, 19, 111);
+}
+
+ /* css pagina liste delle palylist*/ 
+ 
