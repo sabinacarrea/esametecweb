@@ -10,34 +10,39 @@
   outline: 0;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   
 }
 
 body{
     font-family: 'Playfair Display', serif;
     font-family: 'Work Sans', sans-serif;
-    background: rgb(244, 194, 166);
+    background-image: url("img/limoniwallapaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 
 /*stile generale del form*/
 .card {
 
-    width: 300px;
+    width: 80%;
+    max-width: 350px;
     margin: 200px auto;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(20, 0, 31, 0.1);
+    box-shadow: 0 0 5px rgba(20, 0, 31, 0.521);
     padding: 30px;
   }
 
   h2 {
     text-align: center;
-    color: rgb(222, 19, 111);
+    color: rgb(34, 34, 34);
     font-weight: 600;
     font-size: 20px;
    
   }
-
 
 .form-input{
   width: 100%;
@@ -46,7 +51,7 @@ body{
   border-radius: 5px;
   backdrop-filter: blur(10px);
   background: rgb(228, 228, 228);
-  opacity:0.7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.029);
 }
 
 .form-input:selected{
@@ -58,17 +63,18 @@ body{
     width: 50%;
     padding: 10px;
     margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(255, 41, 137);
-    color: #fff;
+    color: rgb(34, 34, 34);
     font-weight: bold;
-    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: white;
+    border: 1px solid rgb(34, 34, 34);
   }
 
 .btn:hover {
-  background-color: rgb(222, 19, 111);
   transform: scale(110%);
+  color: white;
+  background-color:  rgb(34, 34, 34);
 }
 
 .form-check{
@@ -84,13 +90,15 @@ body{
 
 .accedi{
   font-family: 'Work Sans', sans-serif;
-  color:rgb(255, 41, 137);
+  color: rgb(34, 34, 34);
 
 }
 
 .accedi:hover {
-  color: rgb(222, 19, 111);
+  transform: scale(110%);
 }
 
- /* css pagina liste delle palylist*/ 
+ /* css pagina conserve*/ 
+
+
  

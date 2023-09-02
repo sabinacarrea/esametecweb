@@ -1,0 +1,192 @@
+/*annullamento di tutte le preimpostazioni dei motiori di ricerca */
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  body{
+      font-family: 'Playfair Display', serif;
+      font-family: 'Work Sans', sans-serif;
+      background-image: url("img/limoniwallapaper.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      /* position: relative; */
+  }
+
+  
+/* body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 65, 65, 0.4);
+    z-index: -1; 
+  } L'avevo fatto per scurire lo sfondo ma non serve*/
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+
+  
+  }
+
+  .header-container {
+    background-color: #fffffff5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.534);
+
+  }
+  
+  img {
+    height: 4cm;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    color: rgb(35, 35, 35);
+    font-weight: 600;
+    font-size: 70px;
+   
+  }
+
+  .instruction {
+    text-align: center;
+    margin-top: 10px;
+
+  } 
+  
+  h1 {
+    text-align: center;
+    color: rgb(34, 34, 34);
+  }
+  
+
+  h3 {
+    text-align: center;
+    color: rgb(35, 35, 35);
+    margin-top: 20px;
+    font-weight: 800;
+    font-size: large;
+
+  } 
+
+  h4 {
+    text-align: center;
+    color: rgb(63, 63, 63);
+    margin-top: 20px;
+  }
+  
+
+  .add-button {
+    margin-top: 20px;
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: white;
+    border: 1px solid;
+    
+  }
+  
+  .add-button:hover {
+    transform: scale(120%);
+
+
+  }
+
+  .instruction {
+    color: rgb(34, 34, 34);
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+
+
+  .composizione{
+    color:rgb(34, 34, 34) ;
+  }
+
+  .add-button-conserve{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 3px;
+    color:rgb(34, 34, 34);
+   border: 1px solid rgb(34, 34, 34);
+   background-color: white;
+  }
+
+  .add-button-conserve:hover {
+    transform: scale(120%);
+
+
+  }
+
+
+  .items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+
+  .item {
+    height: 300px;
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #fffffff5;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.534);
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+
+  }
+
+  
+  .item img {
+    max-width: 80%;
+  }
+  
+  .item h2 {
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  .item h1 {
+    margin-top: 5px;
+  }
+  
+  .item p {
+    margin-top: 5px;
+  }
+  
+  .item .add-button {
+    margin-top: 10px;
+  }
