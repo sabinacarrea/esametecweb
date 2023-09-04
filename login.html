@@ -14,7 +14,7 @@
 <body>
 
     <div class="card">
-    <form method="POST" action="config2.php">
+    <form method="POST" action="php/registrati.php">
 
                     <h2 class="titolo">Che bello vederti!</h2>
 
@@ -22,10 +22,10 @@
                     <input class="form-input" type="text"  placeholder="Inserisci un username" id="username" name="username" class="form-control" required/> 
                     
                     <label for="Password"></label>
-                    <input class="form-input" type="password" placeholder="Password" id="password" class="form-control"/>
+                    <input class="form-input" type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
                    
-                    <input class="btn" type="submit" value="Accedi"> 
-                    <p class="accountrichiesta">Non hai ancora un account? <a href="index.php" class="accedi"> <u> Registrati </u></a></p>
+                    <input class="btn" type="submit" value="Accedi" name="login"> 
+                    <p class="accountrichiesta">Non hai ancora un account? <a href="php/index.php" class="accedi"> <u> Registrati </u></a></p>
 
 
     </form>

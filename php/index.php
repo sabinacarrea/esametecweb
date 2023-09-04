@@ -13,11 +13,13 @@
     <title>Form di entrata</title>
 </head>
 <body>
+   
+<!-- form -->
 
     <div class="card">
     <form action="registrati.php"  method="POST">
 
-                    <h2 class="titolo">Ciao, Registrati!</h2>
+                    <h2 class="titolo">Ehi non sei ancora registrato, compila il modulo!</h2>
                         <label for="username"></label>
                         <input class="form-input" type="text"  placeholder="Inserisci un username" id="username" name="username" class="form-control" required/> 
                         
@@ -28,16 +30,38 @@
                         <input class="form-input" type="text" placeholder="Cognome" id="cognome" name="cognome" class="form-control" required/>
 
                         <label for="Email"></label>
-                        <input class="form-input" type="email" placeholder="Email" id="email" name="email" class="form-control"/>
+                        <input class="form-input" type="email" placeholder="Email" id="email" name="email" class="form-control" required/>
 
                         <label for="Password"></label>
-                        <input class="form-input" type="password" placeholder="Password" id="password" name="password" class="form-control"/>
+                        <input class="form-input" type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
+
+                        <label for="conferma_password"></label>
+                        <input class="form-input" type="password" placeholder="Conferma password" id="conferma_password" name="conferma_password" class="form-control" required/>
                         
+                        <input type="checkbox" id="mostra_password" onclick="mostraNascondiPassword()">
+                        <label class="mostra_password" for="mostra_password">Mostra Password</label>
+
                         <input class="btn" type="submit" value="Registrami" name="registrami">
 
     </form>
-    <p class="accountrichiesta">Hai già un account? <a href="login.html" class="accedi"> <u> Accedi </u></a></p>
+    <p class="accountrichiesta">Hai già un account? <a href="../login.html" class="accedi"> <u> Accedi </u></a></p>
 </div> 
  
+<!-- checkbox -->
+<script>
+        function mostraNascondiPassword() {
+            var passwordInput = document.getElementById("password");
+            var confermaPasswordInput = document.getElementById("conferma_password");
+            var checkbox = document.getElementById("mostra_password");
+
+            if (checkbox.checked) {
+                passwordInput.type = "text";
+                confermaPasswordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+                confermaPasswordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
