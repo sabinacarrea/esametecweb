@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
         $stored_password = $row['password'];
 
         // Verifica la password
-        if (password_verify($password, $stored_password)) {
+        if ($password === $stored_password) {
             // La password è corretta
             session_start();
             $_SESSION['login'] = true;
