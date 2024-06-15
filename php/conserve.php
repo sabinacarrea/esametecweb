@@ -92,16 +92,54 @@
   </script>
 
 </head>
+<header>
+  <div class="header-container">
+
+  <img src="../img/handmade.png" alt="Immagine Dispensa">
+
+  <h2>Tieni ordinata la tua dispensa!</h2>
+  <button id='pulsanteform' class="btn" onclick="apriPopup()">Aggiungi Conserva</button>
+
+  </div>
+</header>
+
 <body>
+
   <div class="container">
+    
+    <div class="items-container">
 
-    <div class="header-container">
+      <?php
+      include 'config.php';
+      session_start();
 
-      <img src="../img/handmade.png" alt="Immagine Dispensa">
-      
-      <h2>Tieni ordinata la tua dispensa!</h2>
-      <button id='pulsanteform' class="btn" onclick="apriPopup()">Aggiungi Conserva</button>
-      
+      if ( isset($_SESSION['id']) ){
+          $id = $_SESSION['id'];
+          $sql = "SELECT id_conserva, tipologia, anno, ingredienti, quantita FROM conserve WHERE id_utente = $id ";
+
+          $result = $connessione->query($sql);
+
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              echo "<div class='item' data-id='" . $row["id_conserva"] . "'>
+                      <h3>" . $row["tipologia"] . "</h3>
+                      <h4>Anno: " . $row["anno"] . "</h4>
+                      <p class='composizione'>Ingredienti: " . $row["ingredienti"] . "</p>
+                      <p class='composizione'>Quantità: " . $row["quantita"] . " kg</p>
+                      <button class='btn btn-modifica' onclick=\"modificaConserva(" . $row["id_conserva"] . ")\">Modifica</button>
+                      <button class='btn btn-elimina' onclick=\"eliminaConserva(" . $row["id_conserva"] . ")\">Elimina</button>
+                    </div>";
+            }
+          } else {
+            echo "<button id='pulsanteform' class=\"btn\" onclick=\"\">Nessuna conserva trovata</button>";
+          }
+
+          $connessione->close();
+      }
+
+
+      ?>    
+
     </div>
 
     <!-- FINESTRA POP UP NASCOSTA -->
@@ -130,39 +168,13 @@
       </div>
     </div>
 
-    <div class="items-container">
-
-    <?php
-    include 'config.php';
     
-    $sql = "SELECT id_conserva, tipologia, anno, ingredienti, quantita FROM conserve";
-    $result = $connessione->query($sql);
 
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        echo "<div class='item' data-id='" . $row["id_conserva"] . "'>
-                <h3>" . $row["tipologia"] . "</h3>
-                <h4>Anno: " . $row["anno"] . "</h4>
-                <p class='composizione'>Ingredienti: " . $row["ingredienti"] . "</p>
-                <p class='composizione'>Quantità: " . $row["quantita"] . " kg</p>
-                <button class='btn btn-modifica' onclick=\"modificaConserva(" . $row["id_conserva"] . ")\">Modifica</button>
-                <button class='btn btn-elimina' onclick=\"eliminaConserva(" . $row["id_conserva"] . ")\">Elimina</button>
-              </div>";
-      }
-    } else {
-      echo "Nessuna conserva trovata.";
-    }
-
-    $connessione->close();
-    ?>
-      
-    </div>
-
-    <footer>
-      <a href="logout.php">Logout</a>
-    </footer>
   </div> 
   
-  <script src="marmellate.js"></script> 
 </body>
+
+<footer>
+  <a href="logout.php">Logout</a>
+</footer>
 </html>

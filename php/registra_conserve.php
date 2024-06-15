@@ -8,8 +8,10 @@ if (isset($_POST['marmellata'])) {
     $ingredienti = $connessione->real_escape_string($_POST['ingredienti']);
     $quantita = $connessione->real_escape_string($_POST['quantita']);
 
+    session_start();
+
     // Inserimento dei dati nel database
-    $sql = "INSERT INTO conserve (tipologia, anno, ingredienti, quantita) VALUES ('$tipologia', '$anno', '$ingredienti', '$quantita')";
+    $sql = "INSERT INTO conserve (tipologia, anno, ingredienti, quantita, id_utente) VALUES ('$tipologia', '$anno', '$ingredienti', '$quantita', '{$_SESSION['id']}')";
 
     if ($connessione->query($sql) === TRUE) {
         echo "<script>
