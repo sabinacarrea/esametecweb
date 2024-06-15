@@ -1,41 +1,27 @@
-
 <?php
+include 'config.php';
 
-require_once('config.php');
+if (isset($_POST['marmellata'])) {
+    // Recupero dei dati dal modulo
+    $tipologia = $connessione->real_escape_string($_POST['tipologia']);
+    $anno = $connessione->real_escape_string($_POST['anno']);
+    $ingredienti = $connessione->real_escape_string($_POST['ingredienti']);
+    $quantita = $connessione->real_escape_string($_POST['quantita']);
 
-<?php
-session_start();
+    // Inserimento dei dati nel database
+    $sql = "INSERT INTO conserve (tipologia, anno, ingredienti, quantita) VALUES ('$tipologia', '$anno', '$ingredienti', '$quantita')";
 
-if (!isset($_SESSION['username'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è autenticato
-    header('login.php');
-    exit();
-}
-
-if (isset($_POST['aggiungi_conserva'])) {
-    // Ricevi i dati inviati dal modulo HTML
-    $nome_conserva = $_POST['tipologia'];
-    $anno = $_POST['anno'];
-    $ingredienti = $_POST['ingredienti'];
-    $quantita = $_POST['quantita'];
-
-
-    // Esegui la query di inserimento
-    $query = "INSERT INTO conserva (tipologia, anno, ingredienti, quantita) VALUES ('$tipologia', '$anno', '$ingredienti', '$quantita')";
-    $stmt = $connessione->prepare($query);
-    $stmt->bind_param("siss", $tipologia, $anno, $ingredienti, $quantita);
-
-    if ($stmt->execute()) {
-        // Inserimento riuscito, puoi fare ulteriori azioni qui se necessario
-        $stmt->close();
-        $connessione->close();
-
-        // Reindirizza l'utente alla pagina dopo l'aggiunta della conserva
-        header('Location: conserve.php');
-        exit();
+    if ($connessione->query($sql) === TRUE) {
+        echo "<script>
+                alert('Nuova conserva aggiunta con successo');
+                window.location.href='conserve.php';
+              </script>";
     } else {
-        echo "Errore durante l'inserimento della conserva: " . $stmt->error;
+        echo "Errore: " . $sql . "<br>" . $connessione->error;
     }
+
+    // Chiusura della connessione
+    $connessione->close();
 }
 ?>
 

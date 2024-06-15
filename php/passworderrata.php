@@ -1,9 +1,9 @@
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,12 @@
 </head>
 <body>
 
-    <div class="card">
-    <form method="POST" action="php/registrati.php">
+    <!-- form di registrazione -->
+    <div class="card"> 
+        
+    <form method="POST" action="registrati.php">
 
-                    <h2 class="titolo">Che bello vederti!</h2>
+                    <h2 class="titolo" id='passowrderrata'>La password è sbagliata, riprova!</h2>
 
                     <label for="username"></label>
                     <input class="form-input" type="text"  placeholder="Inserisci un username" id="username" name="username" class="form-control" required/> 
@@ -25,12 +27,14 @@
                     <input class="form-input" type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
                    
                     <input class="btn" type="submit" value="Accedi" name="login"> 
-                    <p class="accountrichiesta">Non hai ancora un account? <a href="php/index.php" class="accedi"> <u> Registrati </u></a></p>
+                  
+
+                    <p class="accountrichiesta">Non hai ancora un account? <a href="index.php" class="accedi"> <u> Registrati </u></a></p>
 
 
     </form>
 </div>
 
- <div></div>
+
 </body>
 </html>

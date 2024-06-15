@@ -17,7 +17,7 @@
 body{
     font-family: 'Playfair Display', serif;
     font-family: 'Work Sans', sans-serif;
-    background-image: url("img/limoniwallapaper.jpg");
+    background-image: url("../img/limoniwallapaper.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -30,7 +30,7 @@ body{
     width: 80%;
     max-width: 350px;
     margin: 200px auto;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(20, 0, 31, 0.521);
     padding: 30px;
@@ -42,6 +42,11 @@ body{
     font-weight: 600;
     font-size: 20px;
    
+  }
+
+
+  #passowrderrata{
+    color: #ad1774;
   }
 
 .form-input{
@@ -73,9 +78,26 @@ body{
 
 .btn:hover {
   transform: scale(110%);
-  color: white;
-  background-color:  rgb(34, 34, 34);
+  
 }
+
+#btncolor {
+  width: 50%;
+  padding: 10px;
+  margin-top: 20px;
+  color: rgb(34, 34, 34);
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: white;
+  border: 1px solid rgb(34, 34, 34);
+}
+
+#btncolor:hover {
+transform: scale(110%);
+
+}
+
 
 .form-check{
   margin-top: 15px;
@@ -97,7 +119,3 @@ body{
 .accedi:hover {
   transform: scale(110%);
 }
-
-
-
- 
