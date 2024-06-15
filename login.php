@@ -1,3 +1,10 @@
+
+<?php
+    session_start();
+    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+    unset($_SESSION['error_message']);
+?>
+
 <!DOCTYPE html>
 
 <html lang="it">
@@ -28,9 +35,14 @@
             <input class="form-input" type="password" placeholder="Password" id="password" name="password" class="form-control" required/>
             
             <input class="btn" type="submit" value="Accedi" name="login"> 
-            
 
             <p class="accountrichiesta">Non hai ancora un account? <a href="php/index.php" class="accedi"> <u> Registrati </u></a></p>
+                
+            <!-- Messaggio di errore se la pw è sbagliata -->
+            <?php if (!empty($error_message)): ?>
+                    <p style="color: red;"><?php echo $error_message; ?></p>
+                <?php endif; ?>
+
 
             <button id="btncolor" type="button">Cambia Colore</button>
 

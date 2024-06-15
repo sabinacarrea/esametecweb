@@ -18,7 +18,8 @@ if (isset($_POST['registrami'])) {
     $result_check_username = $connessione->query($query_check_username);
 
     if ($result_check_username->num_rows > 0) {
-        echo "Username già in uso. Scegli un altro username.";
+        $_SESSION['error_message'] = "Username già in uso. Scegli un altro username.";
+        header('Location: index.php');
         // Gestire il caso in cui l'username è già in uso
     } else {
         // Hash della password (utilizzando password_hash())
@@ -31,7 +32,7 @@ if (isset($_POST['registrami'])) {
 
         if ($stmt->execute()) {
             echo "Benvenuto, $username! Questa è la tua pagina privata.";
-            header('Location: conserve.php');
+            header('Location: ../login.php');
             exit();
         } else {
             echo "Errore di registrazione: " . $stmt->error;
@@ -49,36 +50,38 @@ if (isset($_POST['login'])) {
 
     //query per verificare l'autenticazione dell'utente
     $query = "SELECT * FROM utenti WHERE username = '$username'";
-
     $result = $connessione->query($query);
 
     if ($result->num_rows == 1) {
         // Utente è trovato nel database
         $row = $result->fetch_assoc();
-        $stored_password = $row['password'];
+        $stored_hash = $row['password'];
 
         // Verifica la password
-        if ($password === $stored_password) {
+        if (password_verify($password, $stored_hash)) {
             // La password è corretta
-            session_start();
+            // session_start();
             $_SESSION['login'] = true;
             $_SESSION['username'] = $username;
+            $_SESSION['id'] = $row['id'];
 
             // Reindirizza all'area riservata agli utenti con metodo POST
             header('Location: conserve.php');
             exit();
-            } else {
-            // La password è errata, gestire l'errore di accesso
-            header('Location: passworderrata.php');
-            exit();
-            }
-            } else {
-            // L'utente non è stato trovato nel database, gestire l'errore di accesso
-            header('Location: index.php');
-            exit();
-            }
+        } else {
+        // La password è errata, gestire l'errore di accesso
+        $_SESSION['error_message'] = "La password è sbagliata, riprova";
+        header('Location: ../login.php');
+        
+        exit();
+        }
+    } else {
+    // L'utente non è stato trovato nel database, gestire l'errore di accesso
+    header('Location: index.php');
+    exit();
+    }
 
-            // Chiudi la connessione al database
-            $connessione->close();
-            }
-            ?>
+    // Chiudi la connessione al database
+    $connessione->close();
+}
+?>

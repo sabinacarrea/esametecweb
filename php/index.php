@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $error_message = isset($_SESSION['error_message']) ? $_SESSION['error_message'] : '';
+    unset($_SESSION['error_message']);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -40,6 +45,12 @@
                         
                         <input type="checkbox" id="mostra_password" onclick="mostraNascondiPassword()">
                         <label class="mostra_password" for="mostra_password">Mostra Password</label>
+
+
+                        <!-- messaggio di errore se l'username è già nel db -->
+                        <?php if (!empty($error_message)): ?>
+                            <p style="color: red;"><?php echo $error_message; ?></p>
+                        <?php endif; ?>
 
                         <input class="btn" type="submit" value="Registrami" name="registrami">
 
